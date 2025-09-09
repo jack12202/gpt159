@@ -2,290 +2,794 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="GPT Plus 官方 iOS 通道代充，¥159/月，微信直充，5 分钟自动到帐" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GPT Plus 专属通道 · 188/月</title>
-  <meta name="description" content="企业级稳定 · 专属通道 · 一对一客户经理 · 三重加密激活。高端用户的长期稳定之选。" />
+  <title>GPT Plus 充值平台</title>
+
+  <!-- 简单的 CSS，只依赖系统字体 -->
   <style>
-    :root{
-      --bg-start:#0b1220;
-      --bg-end:#1d2a3f;
-      --primary:#d4af37;
-      --primary-2:#f1cf66;
-      --text:#e5e7eb;
-      --muted:#9aa4b2;
-      --soft:#0f1a2d;
-      --panel:#111a2a;
-      --hair:#1f2d48;
-      --radius:16px;
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --accent: #f97316;
+      --gray-300: #d4d4d8;
+      --gray-500: #6b7280;
+      --radius: 22px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background:
-        radial-gradient(1200px 900px at 70% -10%, #1b2a45 0%, transparent 60%),
-        radial-gradient(900px 700px at -10% 10%, #10203b 0%, transparent 55%),
-        linear-gradient(180deg, var(--bg-start), var(--bg-end));
-      color:var(--text);
+
+    /* 背景渐变 & 全局排版 */
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background: linear-gradient(135deg, #6366f1 0%, #6b46c1 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
     }
-    a{color:var(--primary)}
-    .container{max-width:880px; margin:0 auto; padding:32px 20px 120px}
-    .topbar{display:flex; align-items:center; gap:10px; padding:6px 0 18px}
-    .brand-badge{width:28px; height:28px; background:linear-gradient(135deg,#273858,#0b1220); border:1px solid #2b3b58; border-radius:6px; display:grid; place-items:center; color:var(--primary)}
-    .brand{font-weight:800; letter-spacing:.4px}
-    .brand-sub{font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.2px; margin-top:2px}
-    .hero{background:linear-gradient(180deg, rgba(15,26,45,.7), rgba(15,26,45,.35)); border:1px solid var(--hair); border-radius:var(--radius); padding:28px 22px; text-align:center}
-    .hero h1{margin:0 0 10px; font-size:36px; font-weight:900}
-    .hero p{margin:6px auto 0; color:#aab4c3; line-height:1.7; max-width:720px}
-    .price{display:flex; justify-content:center; align-items:baseline; gap:10px; margin:18px 0 6px}
-    .price .big{font-size:44px; font-weight:900}
-    .price .tag{font-size:12px; padding:4px 10px; border:1px solid var(--hair); color:#93a2b8; border-radius:9999px}
-    .cta{display:inline-block; min-width:260px; margin:12px auto 6px; padding:16px 22px; border:none; border-radius:12px; font-weight:900; font-size:1.08rem; color:#101826; background:linear-gradient(180deg, var(--primary-2), var(--primary)); cursor:pointer; box-shadow:0 18px 36px rgba(212,175,55,.28); transition:transform .15s ease, filter .2s ease}
-    .cta:hover{filter:brightness(1.04); transform:translateY(-2px)}
-    .subnote{margin:6px 0 0; color:#aab4c3; font-size:12px}
-    .kpis{display:flex; justify-content:center; gap:22px; margin:16px 0 0; flex-wrap:wrap}
-    .kpi{padding:6px 10px; border-left:1px solid var(--hair)}
-    .kpi:first-child{border-left:none}
-    .kpi .v{font-weight:900; font-size:18px}
-    .kpi .l{color:#9aa4b2; font-size:12px; margin-top:2px; text-wrap:balance}
-    .features{display:grid; grid-template-columns:1fr 1fr; gap:8px 28px; margin:22px auto 0; max-width:780px; text-align:left}
-    .feature{display:flex; gap:10px; align-items:flex-start}
-    .feature .i{width:22px; height:22px; display:grid; place-items:center; background:var(--soft); border:1px solid var(--hair); border-radius:8px}
-    .feature b{display:block; margin-bottom:2px}
-    .feature span{color:#9aa4b2; font-size:13px; line-height:1.6}
-    details.guarantee{margin:18px auto 0; max-width:760px; background:rgba(15,26,45,.35); border:1px solid var(--hair); border-radius:12px; padding:12px 14px}
-    details.guarantee > summary{list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; font-weight:800}
-    details.guarantee > summary::-webkit-details-marker{display:none}
-    .g-body{margin-top:8px; color:#9aa4b2; font-size:14px; line-height:1.75}
-    .g-body ul{margin:8px 0 0 18px}
-    footer{margin-top:20px; color:#9aa4b2; font-size:12px; text-align:center}
-    @media (max-width: 720px){ .features{grid-template-columns:1fr} .hero h1{font-size:28px} }
-    .sticky-cta{position:fixed; left:16px; right:16px; bottom:16px; z-index:60; background:linear-gradient(180deg, var(--primary-2), var(--primary)); color:#101826; text-align:center; padding:14px 0; border-radius:12px; font-weight:900; box-shadow:0 16px 36px rgba(212,175,55,.28)}
 
-    /* Modals & flow */
-    .mask{position:fixed; inset:0; background:rgba(0,0,0,.6); backdrop-filter:blur(2px); z-index:90; display:none}
-    .mask.show{display:block}
-    .modal{position:fixed; left:50%; top:50%; transform:translate(-50%,-46%) scale(.96); width:min(92vw, 640px); background:var(--panel); color:var(--text); border:1px solid var(--hair); border-radius:16px; box-shadow:0 30px 80px rgba(0,0,0,.45); z-index:100; opacity:0; pointer-events:none; transition:all .22s ease}
-    .modal.show{transform:translate(-50%,-50%) scale(1); opacity:1; pointer-events:auto}
-    .modal .hd{display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid var(--hair)}
-    .modal .close{background:transparent; border:0; color:#9aa4b2; cursor:pointer; font-size:18px}
-    .modal .bd{padding:20px 16px 18px}
-    .flow-ol{list-style:none; margin:0; padding:0}
-    .flow-ol li{margin:14px 0; padding:16px 18px; border-radius:16px; background: radial-gradient(100% 120% at 0% 0%, rgba(241,207,102,.08) 0%, rgba(241,207,102,0) 60%), #0f1a2d; border:1px solid rgba(241,207,102,.25); box-shadow: inset 0 1px 0 rgba(241,207,102,.18), 0 8px 28px rgba(212,175,55,.10); font-size:16px; font-weight:800; letter-spacing:.2px}
-    .flow-ol li b{color:#fff}
-    .flow-foot{margin-top:10px; color:#b4bfcd; font-size:13px}
-    .video-link{margin-top:12px; display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; background:linear-gradient(180deg, var(--primary-2), var(--primary)); color:#101826; font-weight:900; border:none; cursor:pointer; box-shadow:0 12px 24px rgba(212,175,55,.25)}
-    .help-box{margin-top:12px; padding:12px; border-radius:12px; background:#0e1a30; border:1px solid var(--hair); color:#cbd5e1}
-    .help-row{display:flex; align-items:center; gap:10px; margin:6px 0}
-    .help-row b{letter-spacing:.2px}
-    .help-copy{padding:4px 10px; font-size:12px; border:1px solid var(--hair); background:#0f1a2d; color:#cbd5e1; border-radius:10px; cursor:pointer; font-weight:700}
+    /* 中心卡片 */
+    .card {
+      width: 100%;
+      max-width: 620px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 36px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(24px);
+      overflow: hidden;
+    }
 
-    /* Floating CS */
-    .kf-wrap{position:fixed; right:18px; bottom:98px; z-index:120}
-    .kf-fab{display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:14px; background:#0f1a2d; color:#e5e7eb; border:1px solid var(--hair); font-weight:800; cursor:pointer; box-shadow:0 10px 24px rgba(0,0,0,.28)}
-    .kf-fab .dot{width:8px; height:8px; border-radius:999px; background:var(--primary)}
-    .kf-panel{position:absolute; right:0; bottom:58px; width:260px; background:#0f1a2d; border:1px solid var(--hair); border-radius:14px; box-shadow:0 20px 50px rgba(0,0,0,.35); padding:12px 12px 10px; color:#cbd5e1; opacity:0; transform:translateY(8px); pointer-events:none; transition:all .2s ease}
-    .kf-panel.open{opacity:1; transform:translateY(0); pointer-events:auto}
-    .kf-panel .hd{display:flex; justify-content:space-between; align-items:center; font-weight:800; margin-bottom:6px}
-    .kf-row{display:flex; align-items:center; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--hair)}
-    .kf-row:last-child{border-bottom:none}
-    .copy-btn{margin-left:8px; padding:3px 8px; font-size:12px; border:1px solid var(--hair); background:#0e1a30; color:#9fb0c8; border-radius:8px; cursor:pointer}
-    .kf-tips{margin-top:8px; color:#9aa4b2; font-size:12px}
-  </style>
+    /* 卡片 – 顶部彩条、标题、徽章 */
+    .card-header {
+      padding: 48px 40px 32px;
+      text-align: center;
+    }
+    .card-header h1 {  margin-bottom:6px;
+      font-size: 1.8rem;
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+      .badge {
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    background: #ffffff1a;
+    backdrop-filter: blur(12px);
+    border: 1px solid #ffffff30;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .badge.clickable {
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+    border: 1px solid #818cf8;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+    transition: all 0.2s ease;
+  }
+  .badge.clickable:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+    background: linear-gradient(135deg, #5b52e8 0%, #7c3aed 100%);
+  }
+
+    /* 指标区域 */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 36px 0 12px;
+    }
+    .stat {
+      flex: 1 1 140px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size:1rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--gray-300);
+    }
+
+    /* 白底表单区 */
+    .form-area {
+      background: #ffffff;
+      color: #000;
+      padding: 40px 40px 48px;
+    }
+
+    /* 步骤条 */
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .steps li {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gray-300);
+      color: var(--gray-500);
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+    }
+    .steps li.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* 表单控件 */
+    .field-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      border: 2px solid var(--gray-300);
+      border-radius: 10px;
+      transition: border 0.25s;
+    }
+    .input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .hint {
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+
+    /* CTA 按钮 */
+    .btn {
+      display: block;
+      width: 100%;
+      margin-top: 26px;
+      padding: 16px 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--primary);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--gray-300);
+      padding: 18px 0 24px;
+    }
+
+    /* 小屏优化 */
+    @media (max-width: 480px) {
+      .card-header { padding: 40px 24px 24px; }
+      .form-area   { padding: 32px 24px; }
+    }
+  
+  /* ======== 价格 + CTA ======== */
+  .price{ margin-top:4px; display:flex; justify-content:center; align-items:flex-end; gap:8px; 
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:8px;
+    margin-top:6px;
+  }
+  .price-val{
+    font-size:2.4rem;
+    font-weight:900;
+    line-height:1;
+  }
+  .price-tag{
+    font-size:.8rem;
+    font-weight:600;
+    padding:4px 10px;
+    border-radius:9999px;
+    background:var(--accent);
+    color:#fff;
+  }
+
+  .btn-buy{
+    width:100%;
+    margin:22px 0 6px;
+    padding:18px 0;
+    font-size:1.12rem;
+    font-weight:800;
+    letter-spacing:.02em;
+    color:#fff;
+    background: linear-gradient(180deg, #ffb457 0%, #f97316 100%);
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    transition: transform .15s ease, filter .2s ease;
+    box-shadow:0 10px 24px rgba(249,115,22,.35);
+    animation: ctaPulse 2.2s ease-in-out infinite;
+  }
+  .btn-buy:hover{ filter: brightness(1.05); transform: translateY(-2px); }
+  .btn-buy:active{ transform: translateY(0); }
+  .btn-buy:focus-visible{ outline: 3px solid #fde68a; outline-offset: 2px; }
+
+  /* —— 说明文字 —— */
+  .note-weak{
+    margin:10px 0 4px;
+    text-align:center;
+    font-size:.82rem;
+    color:#e5e7eb;
+    opacity:.9;
+  }
+  .note-link{
+    color:#bfdbfe;
+    text-decoration:underline;
+  }
+  
+
+  /* —— 客服浮窗 —— */
+  .cs-fab{
+    position:fixed; right:22px; bottom:22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:auto; padding: 8px 12px; border-radius:24px;
+    background:#ffffff; color:#111; border:none;
+    box-shadow:0 6px 26px rgba(0,0,0,.2);
+    font-size:22px; cursor:pointer;
+  }
+  .cs-fab-text {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+    color: #10b981;
+  }
+  .cs-drawer{
+    position:fixed; right:22px; bottom:92px;
+    width:260px; background:#fff; color:#111;
+    border-radius:14px; box-shadow:0 12px 36px rgba(0,0,0,.22);
+    transform:translateY(20px); opacity:0; pointer-events:none;
+    transition:all .2s ease;
+  }
+  .cs-drawer.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
+  .cs-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 14px; border-bottom:1px solid #eee;
+  }
+  .cs-head button{ background:transparent; border:none; font-size:16px; cursor:pointer; }
+  .cs-body{ padding:12px 14px 16px; font-size:.92rem; }
+  .cs-body p{ margin:10px 0; }
+  .copy{
+    margin-left:8px; padding:4px 8px; font-size:.78rem;
+    border-radius:8px; border:1px solid #e5e7eb; background:#f9fafb; cursor:pointer;
+  }
+  .qq-toggle-btn{
+    width:100%; margin-top:8px; padding:6px 8px; font-size:.8rem;
+    border:1px solid #d1d5db; background:#f8fafc; border-radius:6px;
+    cursor:pointer; color:#374151; transition:background .2s;
+  }
+  .qq-toggle-btn:hover{ background:#e5e7eb; }
+  .qq-content{ margin-top:8px; }
+  .qr{ display:block; width:100%; border-radius:10px; margin-top:8px; }
+  
+  .video-drawer{
+    position:fixed; left:50%; bottom:50%; transform:translate(-50%, 50%) scale(0.9);
+    width:min(90vw, 600px); background:#fff; color:#111;
+    border-radius:14px; box-shadow:0 12px 36px rgba(0,0,0,.22);
+    opacity:0; pointer-events:none;
+    transition:all .3s ease;
+    z-index:100;
+  }
+  .video-drawer.open{ 
+    transform:translate(-50%, 50%) scale(1); 
+    opacity:1; 
+    pointer-events:auto; 
+  }
+  .video-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 18px; border-bottom:1px solid #eee;
+  }
+  .video-head button{ background:transparent; border:none; font-size:18px; cursor:pointer; }
+  .video-body{ padding:16px 18px 20px; }
+  .video-body video{ width:100%; border-radius:8px; }
+  .video-description{
+    margin:16px 0 0; padding:12px 14px;
+    background:#f9fafb; border-radius:8px;
+    font-size:0.9rem; color:#374151;
+    line-height:1.5;
+  }
+  .video-mask{
+    position:fixed; inset:0; background:rgba(0,0,0,.6);
+    backdrop-filter:blur(3px); z-index:90;
+    display:none;
+  }
+  .video-mask.show{ display:block; }
+
+  /* ======== 首屏精简：隐藏激活码验证区 ======== */
+  .form-area, .steps { display:none !important; }
+  /* ===== CTA 强化 ===== */
+  @keyframes ctaPulse {
+    0%,100% { box-shadow: 0 10px 24px rgba(249,115,22,.28); transform: translateY(0); }
+    50%     { box-shadow: 0 16px 36px rgba(249,115,22,.42); transform: translateY(-1px); }
+  }
+
+  /* ===== 移动端浮窗 CTA ===== */
+  .cta-sticky{
+    position:fixed; left:16px; right:16px; bottom:16px; z-index:50;
+    display:none;
+    text-align:center; font-weight:800; font-size:1.02rem; color:#fff;
+    padding:14px 0; border-radius:14px; text-decoration:none;
+    background: linear-gradient(180deg, #ffb457 0%, #f97316 100%);
+    box-shadow:0 10px 24px rgba(249,115,22,.35);
+  }
+  @media (max-width: 640px){ .cta-sticky{ display:block; } }
+  .steps-mini{
+    display:flex; flex-wrap:wrap; gap:8px 10px; justify-content:center;
+    align-items:center; margin:8px 0 4px;
+  }
+  .step-pill{
+    font-size:.78rem; font-weight:600; color:#1f2937;
+    padding:6px 10px; border-radius:9999px;
+    background:rgba(255,255,255,.85); border:1px solid rgba(0,0,0,.06);
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
+  }
+  .steps-link{
+    margin-left:6px; font-size:.78rem; color:#bfdbfe; text-decoration:underline;
+  }
+
+  .flow-mask{
+    position:fixed; inset:0; background:rgba(0,0,0,.35);
+    backdrop-filter: blur(2px);
+    display:none; align-items:center; justify-content:center; z-index:60;
+  }
+  .flow-mask.show{ display:flex; }
+  .flow-modal{
+    width:min(92vw,560px); background:#fff; color:#111; border-radius:16px;
+    box-shadow:0 24px 64px rgba(0,0,0,.25); overflow:hidden;
+  }
+  .flow-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 16px; border-bottom:1px solid #eee;
+  }
+  .flow-head button{ background:transparent; border:none; font-size:18px; cursor:pointer; }
+  .flow-body{ padding:14px 18px 18px; }
+  .flow-body ol{ margin:0 0 6px 18px; }
+  .flow-body li{ margin:8px 0; line-height:1.6; }
+  .tips{ margin-top:6px; font-size:.9rem; color:#6b7280; }
+  .tips.highlight{ 
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #f59e0b;
+    font-weight: 600;
+    text-align: center;
+    margin: 16px 0;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+  }
+  /* —— 优化对齐：垂直左对齐列表 —— */
+  .buy-notes {
+    list-style: none;
+    padding: 0;
+    margin: 12px auto;
+    max-width: 360px;
+    display: block;
+    text-align: left;
+  }
+  .buy-notes li {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+    opacity: 0.9;
+  }
+  .buy-notes li::before {
+    content: '✔';
+    margin-right: 8px;
+    color: #34d399;
+    font-size: 1rem;
+  }
+  .buy-notes li.highlight {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #f59e0b;
+    font-weight: 600;
+    margin: 16px 0;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .buy-notes li.highlight:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+  }
+  .buy-notes li.highlight::before {
+    content: '💬';
+    color: #f59e0b;
+  }
+  /* —— flow-modal 客服入口样式 —— */
+  .flow-support { margin-top:16px; padding-top:12px; border-top:1px solid #e5e7eb; }
+  .flow-support .support-title {
+    font-size:0.92rem; font-weight:600; color:#111827; margin-bottom:6px;
+  }
+  .flow-support p {
+    margin:4px 0; font-size:0.88rem; color:#374151;
+  }
+  .flow-support .copy-btn {
+    margin-left:8px; padding:2px 6px; font-size:0.78rem;
+    border:1px solid #d1d5db; background:#f9fafb; border-radius:6px;
+    cursor:pointer; transition:background .2s;
+  }
+  .flow-support .copy-btn:hover { background:#e5e7eb; }
+  .flow-qq-toggle-btn{
+    width:100%; margin-top:8px; padding:6px 8px; font-size:.8rem;
+    border:1px solid #d1d5db; background:#f8fafc; border-radius:6px;
+    cursor:pointer; color:#374151; transition:background .2s;
+  }
+  .flow-qq-toggle-btn:hover{ background:#e5e7eb; }
+  .flow-qq-content{ margin-top:8px; }
+  .video-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4f46e5;
+    background: #eef2ff;
+    border: 1px solid #e0e7ff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .video-btn:hover {
+    background: #e0e7ff;
+    transform: translateY(-1px);
+  }
+  /* 手机端：把客服浮窗提到置底 CTA 之上 */
+  @media (max-width: 640px) {
+    /* 悬浮 CTA 高度约 56px + 底部间距16px = 72px，这里提到 80px 更保险 */
+    .cs-fab {
+      bottom: 80px !important;
+    }
+  }
+
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="topbar">
-      <div class="brand-badge">★</div>
-      <div class="brand">
-        光年升级计划
-        <div class="brand-sub">GPT Plus 专属通道</div>
+  <main class="card">
+    <!-- 顶部 -->
+    <header class="card-header">
+      <h1>GPT Plus 充值平台</h1>
+      <!-- 🔥 价格 + CTA -->
+      <div class="price">
+        <span class="price-val">¥159</span>
+        <span class="price-tag">月付·标准版</span>
       </div>
-    </div>
 
-    <section class="hero">
-      <h1>GPT Plus 专属通道 · 企业级稳定</h1>
-      <p class="sub-1"><b>每天都能放心用的 GPT</b></p>
-      <p class="sub-2">独立专线不混用 · 三重加密防护 · 封号按天退款</p>
-
-      <div class="price"><div class="big">¥188</div><span class="tag">月付 · 高端版</span></div>
-      <button class="cta" id="buyBtn">立即开通（3 分钟到账）</button>
-      <div style="margin-top:6px; font-size:.9rem;"><a href="#" id="openFlow">查看充值流程</a></div>
-      <div class="subnote">无需提供密码 · 数据全程加密 · 支持新老账号</div>
-
-      <div class="kpis">
-        <div class="kpi"><div class="v">99.9%</div><div class="l">长期可用率</div></div>
-        <div class="kpi"><div class="v">&lt; 3 分钟</div><div class="l">平均到账时间</div></div>
-        <div class="kpi"><div class="v">7×16h</div><div class="l">专属客服值守</div></div>
+      <button class="btn-buy" id="buyBtn" aria-label="立即购买卡密">🛒 立即购买 (¥159)</button>
+      <div class="steps-mini">
+        <span class="step-pill">1 下单卡密</span>
+        <span class="step-pill">2 提交账号</span>
+        <span class="step-pill">3 自动到帐</span>
+        <a class="steps-link" href="#" id="openFlow">查看流程</a>
       </div>
+      <p class="note-weak">已有卡密？
+        <a class="note-link" href="https://chongzhi.pro">点此输入激活码</a>
+      </p>
+
+      <ul class="buy-notes">
+        <li>官方 iOS 通道 · 微信直充 · 5 分钟自动到帐</li>
+        <li>无需提供账号密码，支持新老账号</li>
+        <li class="highlight" id="highlightContact">添加人工，领图文详细教程</li>
+      </ul>
+      
+      <div class="badges">
+        <span class="badge">📱 官方 iOS 通道</span>
+        <span class="badge">🔒 不封号</span>
+        <span class="badge">🛡️ 不泄露密码</span>
+        <span class="badge clickable" id="videoTutorialBtn">🎥 视频教程</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value">50,000+</div>
+          <div class="stat-label">满意用户</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">99.9%</div>
+          <div class="stat-label">成功率</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">在线客服</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 表单 -->
+    <section class="form-area">
+      <ol class="steps">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+      </ol>
+
+      <label class="field-label" for="code">激活码</label>
+      <input
+        id="code"
+        name="code"
+        type="text"
+        placeholder="请输入激活码，例如：GPT-DEMO-1234-ABCD"
+        class="input"
+      />
+
+      <p class="hint">激活码由字母、数字和横线组成，不区分大小写</p>
+
+      <button class="btn" onclick="submitCode()">验证激活码</button>
     </section>
-
-    <section class="features" aria-label="核心卖点">
-      <div class="feature"><div class="i">🔒</div><div><b>专属通道 · 不混用卡池</b><span>为每个账号独立处理，降低关联与风控概率，适合长期重度使用者。</span></div></div>
-      <div class="feature"><div class="i">🛡️</div><div><b>企业级安全策略</b><span>三重加密传输与操作留痕可查，隐私与合规并重。</span></div></div>
-      <div class="feature"><div class="i">⚡</div><div><b>自动容错与补单</b><span>异常自动重试与补单，保障到账率 100%。</span></div></div>
-      <div class="feature"><div class="i">👩‍💼</div><div><b>一对一客户经理</b><span>复杂问题直连升级处理，承诺 1 小时内响应。</span></div></div>
-      <div class="feature"><div class="i">🚀</div><div><b>高峰期优先加速</b><span>自研加速路由与优先级调度，高峰期也能稳定低延迟。</span></div></div>
-      <div class="feature"><div class="i">⏱️</div><div><b>按天赔付保障</b><span>若封号或掉 Plus，经核验订单一致：未满 15 天补 1 个月；满 15 天按剩余天数退款（按 30 天计）。</span></div></div>
-    </section>
-
-    <details class="guarantee">
-      <summary>保障与条款（点此展开） <span style="color:var(--muted); font-weight:400"></span></summary>
-      <div class="g-body">
-        <ul>
-          <li>适用平台：ChatGPT Web / iOS（视官方政策变动实时调整）。</li>
-          <li>到账时效：正常 &lt; 3 分钟；若网络波动，5–10 分钟内完成。</li>
-          <li>售后响应：工作时段 &lt; 10 分钟接入；非工作时段 1 小时内回复。</li>
-          <li>安全声明：不收集账号密码，所有敏感信息端到端加密，仅用于激活。</li>
-          <li><b>赔付与补偿规则：</b>
-            <ul>
-              <li>开通过程或 24 小时内因系统原因未成功到账：全额退款或免费补开一次。</li>
-              <li>发生封号/Plus 掉会员，经核验订单与账号一致：
-                <ul>
-                  <li>使用未满 <b>15 天</b>：<b>补 1 个月</b>会员（或等额代金）。</li>
-                  <li>使用满 <b>15 天及以上</b>：按剩余天数<b>退款</b>（按 30 天计）。</li>
-                </ul>
-              </li>
-              <li>不适用情形：账号共享/转卖、违规使用（刷量、滥用接口、自动化异常请求等）、与本服务无关的官方封禁。</li>
-              <li>申请时效：事件发生后 <b>72 小时内</b>提交订单号、账号与截图凭证。</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </details>
 
     <footer>
-      © 光年升级计划 · 提供 GPT Plus 专属通道服务。请遵守平台使用规范，合理使用海外服务资源。
+      本平台仅为国内用户提供代充值通道，采用 iOS 官方渠道，安全无忧<br />
+      GPT Plus 自动化处理，极简 3 步完成充值
     </footer>
-  </div>
+  </main>
 
-  <a class="sticky-cta" id="stickyBuy" href="https://sc.i6ls.com//details/59261041">¥188 立即开通</a>
-
-  <!-- Flow Modal -->
-  <div class="mask" id="flowMask" aria-hidden="true"></div>
-  <div class="modal" id="flowModal" role="dialog" aria-modal="true" aria-labelledby="flowTitle" aria-hidden="true">
-    <div class="hd">
-      <strong id="flowTitle">充值流程</strong>
-      <button class="close" id="flowClose" aria-label="关闭">✕</button>
+  <!-- 客服浮窗 -->
+  <button class="cs-fab" id="csFab" aria-label="联系客服">
+    <span>💬</span>
+    <span class="cs-fab-text">人工咨询</span>
+  </button>
+  <div class="cs-drawer" id="csDrawer" aria-hidden="true">
+    <div class="cs-head">
+      <strong>联系客服</strong>
+      <button id="csClose" aria-label="关闭">✕</button>
     </div>
-    <div class="bd">
-      <ul class="flow-ol">
-        <li><b>买卡密</b>（微信支付）</li>
-        <li><b>粘贴卡密 → 获取充值信息</b></li>
-        <li><b>按提示充值 → 自动到账（3–5 分钟）</b></li>
-      </ul>
-      <div class="flow-foot">如遇任何问题，右下角联系客服处理。</div>
-      <button class="video-link" id="videoOpen">🎬 30 秒演示</button>
-      <div class="help-box">
-        <div style="font-weight:800; margin-bottom:6px">需要人工协助？</div>
-        <div class="help-row">微信：<b id="help-wx">mmzi0723</b> <button class="help-copy" data-copy="help-wx">复制微信</button></div>
-        <div class="help-row">QQ：<b id="help-qq">122026860</b> <button class="help-copy" data-copy="help-qq">复制QQ</button></div>
+    <div class="cs-body">
+      <p>微信：<b id="wx">Jiage01888</b>
+        <button class="copy" onclick="copyText('wx')">复制</button></p>
+      <div class="qq-toggle">
+        <button class="qq-toggle-btn" id="qqToggle">微信联系不上时，请联系QQ</button>
+        <div class="qq-content" id="qqContent" style="display: none;">
+          <p>QQ：<b id="qq">1852634132</b>
+            <button class="copy" onclick="copyText('qq')">复制</button></p>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Video Modal -->
-  <div class="mask" id="videoMask" aria-hidden="true"></div>
-  <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoTitle" aria-hidden="true">
-    <div class="hd">
-      <strong id="videoTitle">30 秒看懂充值流程</strong>
-      <button class="close" id="videoClose" aria-label="关闭">✕</button>
-    </div>
-    <div class="bd">
-      <video id="videoPlayer" controls preload="none" playsinline style="width:100%; border-radius:10px; outline:none">
-        <source src="教学视频.mp4" type="video/mp4">
-        您的浏览器不支持视频播放。
-      </video>
-    </div>
-  </div>
-
-  <!-- Floating CS -->
-  <div class="kf-wrap" id="kfWrap">
-    <button class="kf-fab" id="kfFab"><span class="dot"></span> 客服</button>
-    <div class="kf-panel" id="kfPanel" aria-hidden="true">
-      <div class="hd">客服入口 <button id="kfClose" class="close" aria-label="关闭" style="color:#9aa4b2;background:transparent;border:0;">✕</button></div>
-      <div class="kf-row">
-        <span>微信：<b id="wx">mmzi0723</b></span>
-        <button class="copy-btn" data-copy="wx">复制</button>
-      </div>
-      <div class="kf-row">
-        <span>QQ：<b id="qq">122026860</b></span>
-        <button class="copy-btn" data-copy="qq">复制</button>
-      </div>
-      <div class="kf-tips">工作时段优先回复；请附上订单号与截图。</div>
+      <!-- 如有二维码可自行替换图片路径 -->
+      <!-- <img src="/assets/wechat-qr.jpg" alt="微信二维码" class="qr"> -->
     </div>
   </div>
 
   <script>
-    const ORDER_URL = 'https://sc.i6ls.com//details/59261041';
-    const buyBtn = document.getElementById('buyBtn');
-    const stickyBuy = document.getElementById('stickyBuy');
-    function go(e){ if(e) e.preventDefault(); if(ORDER_URL==='#'){ alert('请在代码中设置 ORDER_URL 为你的下单链接'); } else { window.open(ORDER_URL, '_blank', 'noopener'); } }
-    buyBtn && buyBtn.addEventListener('click', go);
-    stickyBuy && stickyBuy.addEventListener('click', go);
+    function submitCode() {
+      const code = document.getElementById("code").value.trim();
+      if (!code) {
+        alert("请先填写激活码");
+        return;
+      }
+      // 跳转到激活码验证页面
+      window.location.href = `chongzhi.pro`;
+    }
 
+    document.getElementById('buyBtn')?.addEventListener('click', function () {
+      window.open('https://lc.i6ls.com//details/9AC78762', '_blank');
+    });
+
+    const fab = document.getElementById('csFab');
+    const drawer = document.getElementById('csDrawer');
+    const closeBtn = document.getElementById('csClose');
+    const qqToggle = document.getElementById('qqToggle');
+    const qqContent = document.getElementById('qqContent');
+
+    function toggleDrawer(show){
+      if(show){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); }
+      else    { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+    }
+    fab?.addEventListener('click', ()=> toggleDrawer(true));
+    closeBtn?.addEventListener('click', ()=> toggleDrawer(false));
+    
+    // QQ折叠展开功能
+    qqToggle?.addEventListener('click', ()=> {
+      const isHidden = qqContent.style.display === 'none';
+      qqContent.style.display = isHidden ? 'block' : 'none';
+      qqToggle.textContent = isHidden ? '收起QQ联系方式' : '微信联系不上时，请联系QQ';
+    });
+    
+    // 突出显示的客服联系功能
+    const highlightContact = document.getElementById('highlightContact');
+    highlightContact?.addEventListener('click', ()=> {
+      toggleDrawer(true);
+    });
+    
+    // 视频教程按钮功能
+    const videoTutorialBtn = document.getElementById('videoTutorialBtn');
+    videoTutorialBtn?.addEventListener('click', ()=> {
+      toggleVideoDrawer(true, false);
+    });
+
+    function copyText(id){
+      const text = document.getElementById(id)?.textContent || '';
+      navigator.clipboard.writeText(text).then(()=> {
+        if(window.Toastify){ Toastify({ text: '已复制：' + text, duration: 1500 }).showToast(); }
+        else alert('已复制：' + text);
+      });
+    }
+    window.copyText = copyText;
+  </script>
+  <div class="video-mask" id="videoMask"></div>
+  <div class="video-drawer" id="videoDrawer" aria-hidden="true">
+    <div class="video-head">
+      <strong>GPT Plus 充值视频教程</strong>
+      <button id="videoClose" aria-label="关闭">✕</button>
+    </div>
+    <div class="video-body">
+      <video controls>
+        <source src="教学视频.mp4" type="video/mp4">
+        您的浏览器不支持视频播放。
+      </video>
+      <div class="video-description">
+        <p><b>📝 视频教程说明：</b></p>
+        <p>本视频详细演示了 GPT Plus 充值的完整流程，包括下单、提交账号信息及充值完成的全过程。按照视频指引操作，5分钟内即可完成充值。</p>
+        <p>如有任何疑问，可随时联系右下角客服获取帮助。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 移动端底部浮窗 CTA -->
+  <a href="https://lc.i6ls.com//details/9AC78762" target="_blank" class="cta-sticky" role="button" aria-label="¥159 立即购买">¥159 立即购买</a>
+  <div class="flow-mask" id="flowMask" aria-hidden="true">
+    <div class="flow-modal">
+      <div class="flow-head">
+        <strong>充值流程</strong>
+        <button id="closeFlow" aria-label="关闭">✕</button>
+      </div>
+      <div class="flow-body">
+        <ol>
+          <li><b>下单卡密：</b>点击“立即购买卡密”，完成微信支付。</li>
+          <li><b>提交账号：</b>按提示填写/确认你的 GPT 账号（无需提供密码）。</li>
+          <li><b>自动到帐：</b>系统走 iOS 官方通道，约 5 分钟完成开通。</li>
+        </ol>
+        <p class="tips highlight">添加人工领图文充值教程</p>
+  <div class="flow-support">
+    <p class="support-title">客服入口：</p>
+    <p>微信：<b id="flow-wx">Jiage01888</b>
+       <button class="copy-btn" onclick="copyText('flow-wx')">复制</button>
+    </p>
+    <div class="flow-qq-toggle">
+      <button class="flow-qq-toggle-btn" id="flowQqToggle">微信联系不上时，请联系QQ</button>
+      <div class="flow-qq-content" id="flowQqContent" style="display: none;">
+        <p>QQ：<b id="flow-qq">1852634132</b>
+           <button class="copy-btn" onclick="copyText('flow-qq')">复制</button>
+        </p>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
     const openFlow = document.getElementById('openFlow');
     const flowMask = document.getElementById('flowMask');
-    const flowModal = document.getElementById('flowModal');
-    const flowClose = document.getElementById('flowClose');
-    function openFlowModal(e){ if(e) e.preventDefault(); flowMask.classList.add('show'); flowModal.classList.add('show'); document.body.style.overflow='hidden'; }
-    function closeFlowModal(){ flowMask.classList.remove('show'); flowModal.classList.remove('show'); document.body.style.overflow=''; }
-    openFlow && openFlow.addEventListener('click', openFlowModal);
-    flowClose && flowClose.addEventListener('click', closeFlowModal);
-    flowMask && flowMask.addEventListener('click', (e)=>{ if(e.target===flowMask) closeFlowModal(); });
-
-    const videoMask = document.getElementById('videoMask');
-    const videoModal = document.getElementById('videoModal');
+    const closeFlow = document.getElementById('closeFlow');
+    openFlow?.addEventListener('click', (e)=>{ e.preventDefault(); flowMask?.classList.add('show'); flowMask?.setAttribute('aria-hidden','false'); });
+    closeFlow?.addEventListener('click', ()=>{ flowMask?.classList.remove('show'); flowMask?.setAttribute('aria-hidden','true'); });
+    flowMask?.addEventListener('click', (e)=>{ if(e.target===flowMask){ flowMask.classList.remove('show'); flowMask.setAttribute('aria-hidden','true'); }});
+    
+    // 视频教程浮窗控制
+    const videoDrawer = document.getElementById('videoDrawer');
     const videoClose = document.getElementById('videoClose');
-    const videoOpen = document.getElementById('videoOpen');
-    const video = document.getElementById('videoPlayer');
-    function openVideo(){ videoMask.classList.add('show'); videoModal.classList.add('show'); document.body.style.overflow='hidden'; }
-    function closeVideo(){ videoMask.classList.remove('show'); videoModal.classList.remove('show'); document.body.style.overflow=''; try{ video.pause(); video.currentTime=0; }catch(e){} }
-    videoOpen && videoOpen.addEventListener('click', openVideo);
-    videoClose && videoClose.addEventListener('click', closeVideo);
-    videoMask && videoMask.addEventListener('click', (e)=>{ if(e.target===videoMask) closeVideo(); });
-
-    const kfFab = document.getElementById('kfFab');
-    const kfPanel = document.getElementById('kfPanel');
-    const kfClose = document.getElementById('kfClose');
-    function toggleKF(open){
-      kfPanel.classList[open?'add':'remove']('open');
-      kfPanel.setAttribute('aria-hidden', open? 'false':'true');
+    const videoMask = document.getElementById('videoMask');
+    
+    // 标记视频是否从购买流程弹窗打开
+    let videoOpenedFromFlow = false;
+    
+    function toggleVideoDrawer(show, fromFlow = false){
+      const videoElement = document.querySelector('.video-body video');
+      
+      if(show){
+        videoDrawer.classList.add('open');
+        videoDrawer.setAttribute('aria-hidden','false');
+        videoMask.classList.add('show');
+        document.body.style.overflow = 'hidden'; // 防止背景滚动
+        videoOpenedFromFlow = fromFlow; // 记录是否从流程弹窗打开
+      } else {
+        videoDrawer.classList.remove('open');
+        videoDrawer.setAttribute('aria-hidden','true');
+        videoMask.classList.remove('show');
+        document.body.style.overflow = '';
+        
+        // 强制停止视频播放 - 更彻底的处理方式
+        if(videoElement) {
+          videoElement.pause();
+          videoElement.currentTime = 0; // 重置视频到开始位置
+          
+          // 移动端额外处理
+          // 1. 移除视频源并重新添加
+          const videoSrc = videoElement.querySelector('source')?.src;
+          if(videoSrc) {
+            const parent = videoElement.parentNode;
+            const oldVideo = videoElement;
+            
+            // 创建新的视频元素替换旧的
+            const newVideo = document.createElement('video');
+            newVideo.controls = true;
+            
+            const source = document.createElement('source');
+            source.src = videoSrc;
+            source.type = 'video/mp4';
+            
+            newVideo.appendChild(source);
+            newVideo.appendChild(document.createTextNode('您的浏览器不支持视频播放。'));
+            
+            // 替换视频元素
+            if(parent) {
+              parent.replaceChild(newVideo, oldVideo);
+            }
+          }
+        }
+        
+        // 如果是从购买流程打开的，关闭视频时同时关闭购买流程弹窗
+        if(videoOpenedFromFlow) {
+          flowMask?.classList.remove('show');
+          flowMask?.setAttribute('aria-hidden','true');
+          videoOpenedFromFlow = false;
+        }
+      }
     }
-    kfFab && kfFab.addEventListener('click', ()=> toggleKF(true));
-    kfClose && kfClose.addEventListener('click', ()=> toggleKF(false));
-    document.addEventListener('click', (e)=>{
-      if(kfPanel.classList.contains('open')){
-        const within = e.target.closest('#kfWrap');
-        if(!within) toggleKF(false);
+    // 添加点击和触摸事件监听
+    videoClose?.addEventListener('click', ()=> toggleVideoDrawer(false));
+    videoMask?.addEventListener('click', ()=> toggleVideoDrawer(false));
+    
+    // 移动端触摸事件支持
+    videoClose?.addEventListener('touchend', (e)=> {
+      e.preventDefault();
+      toggleVideoDrawer(false);
+    });
+    videoMask?.addEventListener('touchend', (e)=> {
+      if(e.target === videoMask) {
+        e.preventDefault();
+        toggleVideoDrawer(false);
       }
     });
-
-    document.querySelectorAll('.help-copy').forEach(btn => {
-      btn.addEventListener('click', ()=>{
-        const id = btn.getAttribute('data-copy');
-        const text = document.getElementById(id)?.textContent?.trim() || '';
-        if(!text) return;
-        navigator.clipboard.writeText(text).then(()=> alert('已复制：' + text));
-      });
-    });
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', ()=>{
-        const id = btn.getAttribute('data-copy');
-        const text = document.getElementById(id)?.textContent?.trim() || '';
-        if(!text) return;
-        navigator.clipboard.writeText(text).then(()=> alert('已复制：' + text));
-      });
-    });
-
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape'){
-        if(flowModal.classList.contains('show')) closeFlowModal();
-        if(videoModal.classList.contains('show')) closeVideo();
-        if(kfPanel.classList.contains('open')) toggleKF(false);
-      }
+    
+    
+    // 充值流程弹窗中的QQ折叠展开功能
+    const flowQqToggle = document.getElementById('flowQqToggle');
+    const flowQqContent = document.getElementById('flowQqContent');
+    flowQqToggle?.addEventListener('click', ()=> {
+      const isHidden = flowQqContent.style.display === 'none';
+      flowQqContent.style.display = isHidden ? 'block' : 'none';
+      flowQqToggle.textContent = isHidden ? '收起QQ联系方式' : '微信联系不上时，请联系QQ';
     });
   </script>
+
 </body>
 </html>
