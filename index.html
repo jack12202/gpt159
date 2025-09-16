@@ -9,11 +9,11 @@
   <!-- 简单的 CSS，只依赖系统字体 -->
   <style>
     :root {
-      --primary: #6366f1;
-      --primary-dark: #4f46e5;
-      --accent: #f97316;
-      --gray-300: #d4d4d8;
-      --gray-500: #6b7280;
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --accent: #06b6d4;
+      --gray-300: #cbd5e1;
+      --gray-500: #64748b;
       --radius: 22px;
     }
 
@@ -22,7 +22,7 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      background: linear-gradient(135deg, #6366f1 0%, #6b46c1 100%);
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #1d4ed8 50%, #2563eb 75%, #3b82f6 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -70,15 +70,15 @@
     gap: 4px;
   }
   .badge.clickable {
-    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-    border: 1px solid #818cf8;
-    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    border: 1px solid #60a5fa;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
     transition: all 0.2s ease;
   }
   .badge.clickable:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
-    background: linear-gradient(135deg, #5b52e8 0%, #7c3aed 100%);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
   }
 
     /* 指标区域 */
@@ -222,17 +222,17 @@
     font-weight:800;
     letter-spacing:.02em;
     color:#fff;
-    background: linear-gradient(180deg, #ffb457 0%, #f97316 100%);
+    background: linear-gradient(180deg, #06b6d4 0%, #0891b2 100%);
     border:none;
     border-radius:14px;
     cursor:pointer;
     transition: transform .15s ease, filter .2s ease;
-    box-shadow:0 10px 24px rgba(249,115,22,.35);
+    box-shadow:0 10px 24px rgba(6,182,212,.35);
     animation: ctaPulse 2.2s ease-in-out infinite;
   }
   .btn-buy:hover{ filter: brightness(1.05); transform: translateY(-2px); }
   .btn-buy:active{ transform: translateY(0); }
-  .btn-buy:focus-visible{ outline: 3px solid #fde68a; outline-offset: 2px; }
+  .btn-buy:focus-visible{ outline: 3px solid #67e8f9; outline-offset: 2px; }
 
   /* —— 说明文字 —— */
   .note-weak{
@@ -298,8 +298,8 @@
   .form-area, .steps { display:none !important; }
   /* ===== CTA 强化 ===== */
   @keyframes ctaPulse {
-    0%,100% { box-shadow: 0 10px 24px rgba(249,115,22,.28); transform: translateY(0); }
-    50%     { box-shadow: 0 16px 36px rgba(249,115,22,.42); transform: translateY(-1px); }
+    0%,100% { box-shadow: 0 10px 24px rgba(6,182,212,.28); transform: translateY(0); }
+    50%     { box-shadow: 0 16px 36px rgba(6,182,212,.42); transform: translateY(-1px); }
   }
 
   /* ===== 移动端浮窗 CTA ===== */
@@ -308,8 +308,8 @@
     display:none;
     text-align:center; font-weight:800; font-size:1.02rem; color:#fff;
     padding:14px 0; border-radius:14px; text-decoration:none;
-    background: linear-gradient(180deg, #ffb457 0%, #f97316 100%);
-    box-shadow:0 10px 24px rgba(249,115,22,.35);
+    background: linear-gradient(180deg, #06b6d4 0%, #0891b2 100%);
+    box-shadow:0 10px 24px rgba(6,182,212,.35);
   }
   @media (max-width: 640px){ .cta-sticky{ display:block; } }
   .steps-mini{
@@ -428,21 +428,110 @@
     }
   }
 
+  /* ======== 公告样式 ======== */
+  .announcement {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 16px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.25);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    animation: announcementPulse 3s ease-in-out infinite;
+  }
+  
+  .announcement-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .announcement-content {
+    flex: 1;
+  }
+  
+  .announcement-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(146, 64, 14, 0.1);
+  }
+  
+  .announcement-text {
+    font-size: 0.95rem;
+    color: #92400e;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  
+  .warning-text {
+    color: #dc2626;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(220, 38, 38, 0.1);
+  }
+  
+  @keyframes announcementPulse {
+    0%, 100% { 
+      box-shadow: 0 8px 32px rgba(245, 158, 11, 0.25);
+      transform: translateY(0);
+    }
+    50% { 
+      box-shadow: 0 12px 40px rgba(245, 158, 11, 0.35);
+      transform: translateY(-2px);
+    }
+  }
+  
+  /* 移动端公告优化 */
+  @media (max-width: 480px) {
+    .announcement {
+      margin: 16px;
+      padding: 16px;
+      gap: 12px;
+    }
+    
+    .announcement-icon {
+      font-size: 1.8rem;
+    }
+    
+    .announcement-title {
+      font-size: 1rem;
+    }
+    
+    .announcement-text {
+      font-size: 0.9rem;
+    }
+  }
+
 </style>
 </head>
 
 <body>
   <main class="card">
+    <!-- 公告区域 -->
+    <div class="announcement">
+      <div class="announcement-icon">📢</div>
+      <div class="announcement-content">
+        <div class="announcement-title">重要公告</div>
+        <div class="announcement-text">
+          由于全球供货成本暴涨，价格已调整至 ¥199/月。<br>
+          <span class="warning-text">⚠️ 警惕过低价格，可能是黑卡导致封号风险！</span>
+        </div>
+      </div>
+    </div>
+    
     <!-- 顶部 -->
     <header class="card-header">
       <h1>GPT Plus 充值平台</h1>
       <!-- 🔥 价格 + CTA -->
       <div class="price">
-        <span class="price-val">¥169</span>
+        <span class="price-val">¥199</span>
         <span class="price-tag">月付·标准版</span>
       </div>
 
-      <button class="btn-buy" id="buyBtn" aria-label="立即购买卡密">🛒 立即购买 (¥169)</button>
+      <button class="btn-buy" id="buyBtn" aria-label="立即购买卡密">🛒 立即购买 (¥199)</button>
       <div class="steps-mini">
         <span class="step-pill">1 下单卡密</span>
         <span class="step-pill">2 提交账号</span>
@@ -587,7 +676,7 @@
   </script>
 
   <!-- 移动端底部浮窗 CTA -->
-  <a href="https://1c.i6ls.com//details/C249C69E" target="_blank" class="cta-sticky" role="button" aria-label="¥169 立即购买">¥169 立即购买</a>
+  <a href="https://1c.i6ls.com//details/C249C69E" target="_blank" class="cta-sticky" role="button" aria-label="¥199 立即购买">¥199 立即购买</a>
   <div class="flow-mask" id="flowMask" aria-hidden="true">
     <div class="flow-modal">
       <div class="flow-head">
