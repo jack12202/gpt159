@@ -1077,7 +1077,7 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
 <!-- 顶部 -->
 <header class="card-header">
 <h1>GPT Plus 安全充值</h1>
-<div class="notice-bar-top">📢 当前价 ¥188 ｜ 加微信立减 ¥8 ｜ 官方通道更稳</div>
+<div class="notice-bar-top">📢 当前价 ¥188 ｜ 官方通道更稳</div>
 <!-- 成本暴涨通知 -->
 <div class="cost-notice">
 <div class="cost-notice-icon">📢</div>
@@ -1096,10 +1096,7 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
 <span class="cost-notice-label">📈 后续趋势：</span>
               价格可能继续上涨，详情咨询微信
             </div>
-<div class="cost-notice-item">
-<span class="cost-notice-label">🎁 微信专享：</span>
-              加微信立减 <strong>¥8</strong>
-</div>
+
 <div class="cost-notice-item">
 <span class="cost-notice-label">💬 人工微信：</span>
 <strong id="wechatId">mmzi0723</strong>
@@ -1193,8 +1190,23 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
       window.location.href = `chongzhi.pro`;
     }
 
-    document.getElementById('buyBtn')?.addEventListener('click', function () {
-      window.open('https://yf.dtyuedan.cn//details/D198CE38', '_blank');
+    // 公告：购买入口暂不可用（使用自定义弹窗）
+    window.showBuyNotice = function(){
+      try{
+        var mask = document.getElementById('buyNotice');
+        if(mask){
+          mask.classList.add('show');
+          mask.setAttribute('aria-hidden','false');
+          document.body.classList.add('modal-open');
+          return;
+        }
+      }catch(_){ }
+      alert('公告：当前充值人数过多，自动充值系统暂时故障，暂无法自动充值。\n请加微信联系人工手动充值：mmzi0723');
+    };
+
+    document.getElementById('buyBtn')?.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.showBuyNotice();
     });
 
     const drawer = document.getElementById('csDrawer');
@@ -1227,7 +1239,7 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
     window.copyText = copyText;
   </script>
 <!-- 移动端底部浮窗 CTA -->
-<a aria-label="¥188 立即购买" class="cta-sticky" href="https://yf.dtyuedan.cn//details/D198CE38" role="button" target="_blank">¥188 立即购买</a>
+<a aria-label="¥188 立即购买" class="cta-sticky" href="#" role="button" id="buySticky">¥188 立即购买</a>
 <script>
     const openFlow = document.getElementById('openFlow');
     const flowMask = document.getElementById('flowMask');
@@ -1246,9 +1258,16 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
       flowQqContent.style.display = isHidden ? 'block' : 'none';
       flowQqToggle.textContent = isHidden ? '收起QQ联系方式' : '微信联系不上时，请联系QQ';
     });
+    // 移动端吸底购买按钮改为弹出公告
+    (function(){
+      var sticky = document.getElementById('buySticky');
+      if(sticky){
+        sticky.addEventListener('click', function(e){ e.preventDefault(); window.showBuyNotice ? window.showBuyNotice() : alert('公告：当前充值人数过多，自动充值系统暂时故障，暂无法自动充值。\n请加微信联系人工手动充值：mmzi0723'); });
+      }
+    })();
   </script>
 <div class="sticky-note" id="bottomNote">
-<span class="note-text">📌 当前价 <strong>¥188</strong> ｜ <strong>加微信立减 ¥8</strong> ｜ 客服微信：<strong id="wxid">mmzi0723</strong></span>
+<span class="note-text">📌 当前价 <strong>¥188</strong> ｜ 客服微信：<strong id="wxid">mmzi0723</strong></span>
   <button class="cta-mini" id="copyWeChat">复制微信</button>
   <button class="cta-outline" id="openWhyFooter">为什么不是更便宜</button>
   <a data-open="rechargeGuide" style="opacity:.75;text-decoration:underline;margin-left:.5rem;">
@@ -1574,29 +1593,19 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
   var modalBuyP = document.getElementById('modalBuyP'); // 价格构成页签
   var modalBuyF = document.getElementById('modalBuyF'); // 充值流程页签
   var modalBuyS = document.getElementById('modalBuyS'); // 客服微信页签
-  
-  var buyUrl = 'https://yf.dtyuedan.cn//details/D198CE38'; // 与立即购买按钮相同的链接
-  
-  if(modalBuyP){
-    modalBuyP.addEventListener('click', function(e){
+
+  function bindBuyNotice(el){
+    if(!el) return;
+    el.addEventListener('click', function(e){
       e.preventDefault();
-      window.open(buyUrl, '_blank', 'noopener');
+      if(window.showBuyNotice) window.showBuyNotice();
+      else alert('公告：当前充值人数过多，自动充值系统暂时故障，暂无法自动充值。\n请加微信联系人工手动充值：mmzi0723');
     });
   }
-  
-  if(modalBuyF){
-    modalBuyF.addEventListener('click', function(e){
-      e.preventDefault();
-      window.open(buyUrl, '_blank', 'noopener');
-    });
-  }
-  
-  if(modalBuyS){
-    modalBuyS.addEventListener('click', function(e){
-      e.preventDefault();
-      window.open(buyUrl, '_blank', 'noopener');
-    });
-  }
+
+  bindBuyNotice(modalBuyP);
+  bindBuyNotice(modalBuyF);
+  bindBuyNotice(modalBuyS);
 
 
   // 导出以便调试
@@ -1645,8 +1654,10 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('show')) closeRechargeGuide(); });
 
   if(btnOpen){
-    btnOpen.addEventListener('click', function(){
-      window.open(RG_URL, '_blank', 'noopener');
+    btnOpen.addEventListener('click', function(e){
+      e.preventDefault();
+      if(window.showBuyNotice) window.showBuyNotice();
+      else alert('公告：当前充值人数过多，自动充值系统暂时故障，暂无法自动充值。\n请加微信联系人工手动充值：mmzi0723');
     });
   }
 
@@ -1682,11 +1693,11 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
   var lastFocus = null;
 
   // 请在此设置你的购买链接（使用与立即购买相同的链接）：
-  var BUY_URL = 'https://yf.dtyuedan.cn//details/D198CE38'; // 与立即购买按钮相同的链接
-  if(goBuy){ 
+  if(goBuy){
     goBuy.addEventListener('click', function(e){
       e.preventDefault();
-      window.open(BUY_URL, '_blank', 'noopener');
+      if(window.showBuyNotice) window.showBuyNotice();
+      else alert('公告：当前充值人数过多，自动充值系统暂时故障，暂无法自动充值。\n请加微信联系人工手动充值：mmzi0723');
     });
   }
 
@@ -1751,5 +1762,59 @@ body.theme-ink .sticky-note{ border-top-color: rgba(255,255,255,.14) !important;
   // 导出函数（如需在别处触发）
   window.openOfficialProof = openProof;
 })();
-</script></body>
+</script>
+
+<!-- 统一公告弹窗：购买入口暂不可用 + 复制微信 -->
+<div class="modal-mask" id="buyNotice" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-labelledby="buyNoticeTitle" tabindex="-1">
+    <button class="modal-close" id="buyNoticeClose" aria-label="关闭">×</button>
+    <h3 id="buyNoticeTitle" style="margin:.2rem 0 1rem">重要公告</h3>
+    <p style="line-height:1.7;margin:.4rem 0 1rem">当前充值人数过多，自动充值系统暂时故障，暂无法自动充值。请加微信联系人工手动充值。</p>
+    <div class="modal-footer">
+      <button class="cta-mini" id="noticeCopyWx">复制微信：<span class="wx">mmzi0723</span></button>
+    </div>
+  </div>
+  </div>
+
+<script>
+(function(){
+  var mask = document.getElementById('buyNotice');
+  var card = mask ? mask.querySelector('.modal-card') : null;
+  var closeBtn = document.getElementById('buyNoticeClose');
+  var copyBtn = document.getElementById('noticeCopyWx');
+
+  function closeBuyNotice(){
+    if(!mask) return;
+    mask.classList.remove('show');
+    mask.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+  }
+
+  if(closeBtn) closeBtn.addEventListener('click', closeBuyNotice);
+  if(mask) mask.addEventListener('click', function(e){ if(e.target===mask) closeBuyNotice(); });
+
+  function getWx(){
+    var el = document.getElementById('wxid');
+    return (el && (el.textContent||'').trim()) || 'mmzi0723';
+  }
+
+  function mobileTryOpenWeChat(){
+    try{ if(/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)){ setTimeout(function(){ location.href='weixin://'; }, 300); } }catch(_){ }
+  }
+
+  if(copyBtn){
+    copyBtn.addEventListener('click', function(){
+      var wx = getWx();
+      if(window.copyText) window.copyText('wxid');
+      else if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(wx); }
+      else alert('微信号：'+wx+'\n请手动复制');
+      var old = copyBtn.textContent; copyBtn.textContent = '已复制，去微信添加';
+      setTimeout(function(){ copyBtn.textContent = old; }, 1600);
+      mobileTryOpenWeChat();
+    });
+  }
+})();
+</script>
+
+</body>
 </html>
